@@ -5,6 +5,8 @@ class UsersController < ApplicationController
     #
     @users = User.all
 
+    # PRELOADING, EAGER LOADING, AND INCLUDES
+    #
     # Return all users with comments preloaded
     # Typical result: (Views: 1186.8ms | ActiveRecord: 1592.0ms)
     #
