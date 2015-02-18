@@ -2,7 +2,11 @@
 
 This is a simple educational app to help explain and diagnose the N + 1 problem.
 
-By its very nature, it is not an example of exemplary code.
+### Initial State
+
+By its very nature, this is not an example of exemplary code.
+
+The average ActiveRecord response time for users/index view is 2229.6ms. It takes the page about four seconds to load.
 
 ### Setup
 
