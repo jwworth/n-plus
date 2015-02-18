@@ -1,0 +1,28 @@
+%h3 All Users
+- @users.each do |u|
+  %strong Name
+  = u.name
+  %br
+  %strong Email
+  = u.email
+  %br
+  %strong Phone
+  = u.phone
+  %br
+  %strong Status
+  = u.status
+  %br
+  - if u.comments.any?
+    %strong Comments
+    %br
+    - u.comments.each do |c|
+      = c.body
+      %br
+  - if u.reviews.any?
+    %strong Reviews
+    %br
+    - u.reviews.each do |r|
+      = r.body
+      %br
+  %br
+  %br
