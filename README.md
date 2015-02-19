@@ -65,8 +65,6 @@ Next we have `includes`, which chooses between `preload` and `eager_load` based 
 
 It chose to `preload`, because there was no additional scope in the action that would necessitate an `eager_load`. About the same response time as `preload`.
 
-Includes is probably the best bet in most situations.
-
 ### Custom Select
 
 Finally, we have custom queries. Check out the user model for an example of this method in action.
@@ -75,3 +73,9 @@ Finally, we have custom queries. Check out the user model for an example of this
     # (Views: 1156.3ms | ActiveRecord: 1145.6ms)
     #
     #@users = User.with_comments_count
+
+### Conclusion
+
+The `includes` method is probably the right tool for the job in 90% of situations.
+
+Slow queries should be remedied step-by-step using the server log as a guide. Seek out and eliminate redundant queries whenever you can, using `preload`, `eager_load`, `includes`, and your own SQL ingenuity. The result will be a faster application, longer-lasting hardware, and a better user experience.
