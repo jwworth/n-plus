@@ -1,35 +1,42 @@
 class UsersController < ApplicationController
   def index
     # Return all users
-    # Typical result: (Views: 1495.8ms | ActiveRecord: 2273.4ms)
+    # (Views: 2049.9ms | ActiveRecord: 2752.4ms)
     #
     @users = User.all
 
     # PRELOADING, EAGER LOADING, AND INCLUDES
     #
     # Return all users with comments preloaded
-    # Typical result: (Views: 1186.8ms | ActiveRecord: 1592.0ms)
+    # (Views: 1839.3ms | ActiveRecord: 2112.8ms)
     #
-    # @users = User.all.preload(:comments)
+    #@users = User.all.preload(:comments)
 
     # Return all users with comments and reviews preloaded
-    # Typical result: (Views: 678.8ms | ActiveRecord: 30.0ms)
+    # (Views: 1072.9ms | ActiveRecord: 497.4ms)
     #
-    # @users = User.all.preload(:comments, :reviews)
+    #@users = User.all.preload(:comments, :reviews)
 
     # Return all users with comments eager loaded
-    # Typical result: (Views: 1135.6ms | ActiveRecord: 1534.2ms)
+    # (Views: 1650.1ms | ActiveRecord: 2101.0ms)
     #
-    # @users = User.all.eager_load(:comments)
+    #@users = User.all.eager_load(:comments)
 
     # Return all users with comments and reviews eager loaded
-    # Typical result: (Views: 1409.5ms | ActiveRecord: 611.5ms)
+    # (Views: 1747.7ms | ActiveRecord: 773.6ms)
     #
-    # @users = User.all.eager_load(:comments, :reviews)
+    #@users = User.all.eager_load(:comments, :reviews)
 
     # Return all users with comments and reviews included
-    # Typical result: (Views: 870.2ms | ActiveRecord: 25.7ms)
+    # (Views: 1018.1ms | ActiveRecord: 486.4ms)
     #
-    # @users = User.all.includes(:comments, :reviews)
+    #@users = User.all.includes(:comments, :reviews)
+
+    # CUSTOM SELECT
+    #
+    # Return all users with a custom query for comments
+    # (Views: 1156.3ms | ActiveRecord: 1145.6ms)
+    #
+    #@users = User.with_comments_count
   end
 end

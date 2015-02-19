@@ -1,25 +1,30 @@
 %h3 All Users
 - @users.each do |u|
-  %strong Name
-  = u.name
+  %strong Name:
+  = "#{u.name} (#{u.comments.count} Comments)"
   %br
-  %strong Email
+  -# For use with custom select
+  -# %strong Name:
+  -#= "#{u.name} (#{u.comments_count} Comments)"
+  -# %br
+
+  %strong Email:
   = u.email
   %br
-  %strong Phone
+  %strong Phone:
   = u.phone
   %br
-  %strong Status
+  %strong Status:
   = u.status
   %br
   - if u.comments.any?
-    %strong Comments
+    %strong Comments:
     %br
     - u.comments.each do |c|
       = c.body
       %br
   - if u.reviews.any?
-    %strong Reviews
+    %strong Reviews:
     %br
     - u.reviews.each do |r|
       = r.body
