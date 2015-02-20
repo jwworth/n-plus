@@ -33,7 +33,9 @@ Rails has tools to address this problem. We will look at three of them: `preload
 
 ### Preloading
 
-The `preload` method ships with ActiveRecord and is explored in the user controller. Here is what you will see there:
+The `preload` method ships with `ActiveRecord::QueryMethods`. It does what its name suggests; preloading the records associated with the model it is called on. This reduces the overall amount of queries needed.
+
+Here's what you'll see in the users controller:
 
     # Return all users with comments preloaded
     # (Views: 1839.3ms | ActiveRecord: 2112.8ms)
@@ -49,7 +51,9 @@ Preloading reduced server response time from 2890.0ms to 497.4ms.
 
 ### Eager Loading
 
-The `eager_load` method also ships with ActiveRecord, and is explored in the user controller. Here's that result:
+The `eager_load` method also ships with `ActiveRecord::QueryMethods`. Eager loading performs a left outer join on the model in its argument and the model it is called on.
+
+Here's what you'll see in the users controller:
 
     # Return all users with comments eager loaded
     # (Views: 1650.1ms | ActiveRecord: 2101.0ms)
@@ -65,7 +69,9 @@ Eager loading reduced server response time from 2890.0ms to 773.6ms. That's fast
 
 ### Includes
 
-Next we have `includes`, which chooses between `preload` and `eager_load` based on the complexity of the query. Here's that:
+Finally, we have `includes`, which chooses between `preload` and `eager_load` based on the complexity of the query.
+
+Here's what you'll see in the users controller:
 
     # Return all users with comments and reviews included
     # (Views: 1018.1ms | ActiveRecord: 486.4ms)
