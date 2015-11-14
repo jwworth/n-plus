@@ -85,3 +85,10 @@ Rails chose to `preload`. If we had additional scope in the action, we might hav
 The `includes` method reduced server response time to 486.4ms, about six times faster. It lets Rails chose between `preload` and `eager_load`, and is the right tool for most situations.
 
 Slow queries should be remedied step-by-step using the server log as a guide. Seek out and eliminate redundant queries whenever you can, using `preload`, `eager_load`, `includes`, and your own SQL ingenuity. The result will be a faster application, longer-lasting hardware, and a better user experience.
+
+### License
+
+&copy; 2015 Jake Worth
+
+This repository is distributed under the MIT license. See `LICENSE` for
+details.
